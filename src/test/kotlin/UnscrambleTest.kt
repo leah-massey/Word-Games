@@ -14,5 +14,15 @@ class UnscrambleTest {
         assertTrue(isInList, "$word is in the wordList")
     }
 
+    @Test
+    fun `the chosen word's letters are randomly shuffled`() {
+        val unscrambleGame = UnscrambleGame()
+        val chosenWord = "pound"
+        val actual = unscrambleGame.scramble()
+
+        assertNotEquals(chosenWord, actual)
+        // show that each letter in the shuffled word is in the original word
+        // match the lengths
+    }
 
 }
