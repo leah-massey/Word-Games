@@ -1,7 +1,7 @@
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
 
-class UnscrambleTest {
+class UnscrambleGameTest {
 
     @Test
     fun `a word is randomly selected from the list provided as argument`() {
@@ -24,7 +24,18 @@ class UnscrambleTest {
         assertEquals(chosenWord.length, actual.length)
 
     // show that each letter in the shuffled word is in the original word
-
     }
+
+//    @Test
+//    fun `a correct solution returns a congratulations message`() {
+//        val unscrambleGame = UnscrambleGame()
+//
+//        val chosenWord = unscrambleGame.selectRandomWord()
+//        val actual = unscrambleGame.scramble()
+//
+//        assertEquals(chosenWord.length, actual.length)
+//
+//        // show that each letter in the shuffled word is in the original word
+//    }
 
 }
