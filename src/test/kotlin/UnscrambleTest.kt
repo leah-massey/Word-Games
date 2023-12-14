@@ -17,12 +17,14 @@ class UnscrambleTest {
     @Test
     fun `the chosen word's letters are randomly shuffled`() {
         val unscrambleGame = UnscrambleGame()
-        val chosenWord = "pound"
+        val chosenWord = unscrambleGame.selectRandomWord()
         val actual = unscrambleGame.scramble()
 
         assertNotEquals(chosenWord, actual)
-        // show that each letter in the shuffled word is in the original word
-        // match the lengths
+        assertEquals(chosenWord.length, actual.length)
+
+    // show that each letter in the shuffled word is in the original word
+
     }
 
 }
