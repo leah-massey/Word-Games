@@ -1,7 +1,6 @@
 fun main() {
     val unscrambleGame = UnscrambleGame()
-    unscrambleGame.selectRandomWord()
-    println("Unscramble this word: ${unscrambleGame.scramble()}")
+    println("Unscramble this word: ${unscrambleGame.generateAndScramble()}")
     val solution = readLine()!!
     println(unscrambleGame.testSolution(solution))
 }

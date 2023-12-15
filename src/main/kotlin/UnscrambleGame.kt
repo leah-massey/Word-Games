@@ -9,6 +9,13 @@
 class UnscrambleGame {
 
     var randomWord: String = ""
+    var scrambledRandomWord: String = ""
+
+    fun generateAndScramble(): String {
+        selectRandomWord()
+        scramble()
+        return scrambledRandomWord
+    }
 
     fun selectRandomWord(wordList: List<String> = listOf("pound", "trice", "hired", "comma", "logic")): String {
         val randomIndex: Int = (0 .. (wordList.size -1)).shuffled().first()
@@ -18,10 +25,10 @@ class UnscrambleGame {
 
     fun scramble(): String {
         val randomOrder = (1..5).shuffled() // interesting - it's not the index but the position when applied to a string
-        val scrambledWord: String = randomOrder.map {
-             randomWord.split("")[it]
+        scrambledRandomWord = randomOrder.map {
+            randomWord.split("")[it]
         }.joinToString("")
-        return scrambledWord
+        return scrambledRandomWord
     }
 
     fun testSolution(solution: String): String {
