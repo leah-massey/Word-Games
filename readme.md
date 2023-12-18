@@ -7,16 +7,15 @@ A guide for developers working on this codebase on how to run tests, and build a
 
 Prerequisites
 -------------
+Install command line compiler following instructions [here](https://kotlinlang.org/docs/command-line.html). 
+
 
 
 Run tests
 ---------
 
-check what version of jUnit you have
-- Q : will build.gradle automatically come into project?
-- (from the command line) <br/>
-```build.gradle.kts```
-- 
+To run tests enter this command from the root of the project: 
+```./gradlew test```
 
 
 Build
@@ -27,18 +26,21 @@ Get an executable (or .jar in this case)
 How to run the program
 ----------------------
 
-from path: <br/>
-/Word_Games/src/main/kotlin
+from the root of your Word Games project, follow this path: <br/>
+./src/main/kotlin
 
 run the following steps from your terminal: 
 
-Step 1. <br/>
-```kotlinc hello.kt UnscrambleGame.kt -include-runtime -d hello.jar ```
+Step 1 <br/>
+Build the executable (it will appear like nothing has happened but your program is now up and running!): <br/>
+```kotlinc hello.kt games/UnscrambleGame.kt -include-runtime -d hello.jar ```
 
-Step 2.<br/>
+Step 2 <br/>
+Run the game:<br/>
 ``` java -jar hello.jar ```
 
 A message will pop up in the terminal.<br/>
+Respond with your solution in the terminal and press enter<br/>
 
 To restart the game, return to step 1.
 
