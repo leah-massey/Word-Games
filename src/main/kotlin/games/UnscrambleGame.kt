@@ -1,4 +1,5 @@
-
+package games
+// HOW THIS GAME WORKS
 // select randomWord from list
 // scramble the word
 // receive a guessedWord
@@ -18,20 +19,30 @@ class UnscrambleGame {
     }
 
     fun selectRandomWord(wordList: List<String> = listOf("pound", "trice", "hired", "comma", "logic")): String {
+
         val randomIndex: Int = (0 .. (wordList.size -1)).shuffled().first()
         randomWord = wordList[randomIndex]
         return randomWord
     }
 
     fun scramble(): String {
-        val randomOrder = (1..5).shuffled() // interesting - it's not the index but the position when applied to a string
+        // create a random order to apply to the letters of randomWord
+        var randomOrder: List<Int> = (1..5).shuffled() // interesting - it's not the index but the position when applied to a string
+        // keep generating random order until it differs from original order
+        while (randomOrder == (1..5).toList()) {
+            randomOrder = (1..5).shuffled()
+        }
+
+        //apply random order to randomWord
         scrambledRandomWord = randomOrder.map {
             randomWord.split("")[it]
         }.joinToString("")
+
+
         return scrambledRandomWord
     }
 
-    fun testSolution(solution: String): String {
+    fun checkSolution(solution: String): String {
         if (solution == randomWord) {
             return "Congrats, you got it! 🥳"
         } else {

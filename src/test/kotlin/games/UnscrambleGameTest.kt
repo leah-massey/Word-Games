@@ -1,8 +1,9 @@
+package games
+
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
 
 class UnscrambleGameTest {
-
     @Test
     fun `a word is randomly selected from the list provided as argument`() {
         val unscrambleGame = UnscrambleGame()
@@ -13,7 +14,6 @@ class UnscrambleGameTest {
 
         assertTrue(isInList, "$word is in the wordList")
     }
-
     @Test
     fun `the chosen word's letters are randomly shuffled`() {
         val unscrambleGame = UnscrambleGame()
@@ -23,6 +23,24 @@ class UnscrambleGameTest {
         assertNotEquals(chosenWord, actual)
         assertEquals(chosenWord.length, actual.length)
         // show that each letter in the shuffled word is in the original word
+    }
+
+    @Test
+    fun `a randomly shuffled word must always be different to the original order of letters`() {
+        val unscrambleGame = UnscrambleGame()
+        val chosenWord = unscrambleGame.selectRandomWord()
+        val scrambledWord = unscrambleGame.scramble()
+
+        assertNotEquals(chosenWord, scrambledWord)
+    }  // how would I test properly to show and edge case scenario where a word is shuffled into its original format?
+
+    @Test
+    fun `if user solution is not a 4 letter word, prompt a second attempt`() {
+        val unscrambleGame = UnscrambleGame()
+        val chosenWord = unscrambleGame.selectRandomWord()
+        val scrambledWord = unscrambleGame.scramble()
+
+        assertNotEquals(chosenWord, scrambledWord)
     }
 
     // testing generate and scramble - how can I do this?
