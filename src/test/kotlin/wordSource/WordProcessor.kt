@@ -12,4 +12,13 @@ class WordProcessorTest {
 
         assertTrue(actual.contains(fiveLetterWordFromList))
     }
+
+    @Test
+    fun `return value contains 832 words`() {
+        val underTest = WordProcessor()
+        val expected = 832
+        val actual = underTest.findFiveLetterWords()
+
+        assertEquals(expected, actual.size)
+    }
 }
