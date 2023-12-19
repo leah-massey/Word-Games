@@ -34,14 +34,10 @@ class UnscrambleGameTest {
         assertNotEquals(chosenWord, scrambledWord)
     }  // how would I test properly to show and edge case scenario where a word is shuffled into its original format?
 
-    @Test
-    fun `if user solution is not a 4 letter word, prompt a second attempt`() {
-        val unscrambleGame = UnscrambleGame()
-        val chosenWord = unscrambleGame.selectRandomWord()
-        val scrambledWord = unscrambleGame.scramble()
-
-        assertNotEquals(chosenWord, scrambledWord)
-    }
+//    @Test // not sure how to test for this?
+//    fun `if user solution is not a 4 letter word, prompt a second attempt`() {
+//
+//    }
 
     // testing generate and scramble - how can I do this?
 //    @Test
