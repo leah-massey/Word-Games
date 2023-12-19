@@ -33,7 +33,7 @@ run the following steps from your terminal:
 
 Step 1 <br/>
 Build the executable (it will appear like nothing has happened but your program is now up and running!): <br/>
-```kotlinc hello.kt games/UnscrambleGame.kt -include-runtime -d hello.jar ```
+```kotlinc hello.kt games/UnscrambleGame.kt wordSource/WordProcessor.kt -include-runtime -d hello.jar ```
 
 Step 2 <br/>
 Run the game:<br/>
@@ -41,6 +41,8 @@ Run the game:<br/>
 
 A message will pop up in the terminal.<br/>
 Respond with your solution in the terminal and press enter<br/>
+
+To continue the game, keep running step 2.
 
 To restart the game, return to step 1.
 
