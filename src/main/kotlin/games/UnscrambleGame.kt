@@ -1,4 +1,7 @@
 package games
+
+import wordSource.WordProcessor
+
 // HOW THIS GAME WORKS
 // select randomWord from list
 // scramble the word
@@ -7,7 +10,9 @@ package games
 // if correct, congratulate and exit program
 // if incorrect show randomWord and exit program
 
-class UnscrambleGame {
+class UnscrambleGame(val wordProcessor: WordProcessor) {
+
+    val wordList = wordProcessor.findFiveLetterWords()
 
     var randomWord: String = ""
     var scrambledRandomWord: String = ""
@@ -18,7 +23,7 @@ class UnscrambleGame {
         return scrambledRandomWord
     }
 
-    fun selectRandomWord(wordList: List<String> = listOf("pound", "trice", "hired", "comma", "logic")): String {
+    fun selectRandomWord(): String {
 
         val randomIndex: Int = (0 .. (wordList.size -1)).shuffled().first()
         randomWord = wordList[randomIndex]

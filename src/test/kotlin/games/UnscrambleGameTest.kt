@@ -2,12 +2,14 @@ package games
 
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
+import wordSource.WordProcessor
 
 class UnscrambleGameTest {
     @Test
     fun `a word is randomly selected from the list provided as argument`() {
-        val unscrambleGame = UnscrambleGame()
-        val wordList: List<String> = listOf("pound", "trice", "hired", "comma", "logic")
+        val wordProcessor = WordProcessor()
+        val unscrambleGame = UnscrambleGame(wordProcessor)
+        val wordList: List<String> = wordProcessor.findFiveLetterWords()
         val word = unscrambleGame.selectRandomWord()
 
         val isInList: Boolean = wordList.contains(word)
@@ -16,7 +18,8 @@ class UnscrambleGameTest {
     }
     @Test
     fun `the chosen word's letters are randomly shuffled`() {
-        val unscrambleGame = UnscrambleGame()
+        val wordProcessor = WordProcessor()
+        val unscrambleGame = UnscrambleGame(wordProcessor)
         val chosenWord = unscrambleGame.selectRandomWord()
         val actual = unscrambleGame.scramble()
 
@@ -27,7 +30,8 @@ class UnscrambleGameTest {
 
     @Test
     fun `a randomly shuffled word must always be different to the original order of letters`() {
-        val unscrambleGame = UnscrambleGame()
+        val wordProcessor = WordProcessor()
+        val unscrambleGame = UnscrambleGame(wordProcessor)
         val chosenWord = unscrambleGame.selectRandomWord()
         val scrambledWord = unscrambleGame.scramble()
 
