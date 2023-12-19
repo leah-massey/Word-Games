@@ -21,4 +21,16 @@ class WordProcessorTest {
 
         assertEquals(expected, actual.size)
     }
+
+    @Test
+    fun `return value only includes five letter words`() {
+        val underTest = WordProcessor()
+
+        val actual = underTest.findFiveLetterWords()
+        val onlyFiveLetterWords: List<String> = actual.filter {
+            it.length == 5
+        }
+
+        assertEquals(onlyFiveLetterWords, actual)
+    }
 }
