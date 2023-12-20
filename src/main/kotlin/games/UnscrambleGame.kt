@@ -37,21 +37,17 @@ class UnscrambleGame(val wordProcessor: WordProcessor) {
         while (randomOrder == (1..5).toList()) {
             randomOrder = (1..5).shuffled()
         }
-
         //apply random order to randomWord
         scrambledRandomWord = randomOrder.map {
             randomWord.split("")[it]
+
         }.joinToString("")
 
 
         return scrambledRandomWord
     }
 
-    fun checkSolution(solution: String): String {
-        if (solution == randomWord) {
-            return "Congrats, you got it! 🥳"
-        } else {
-            return "Incorrect! Better luck next time old friend"
-        }
+    fun checkSolutionCorrect(solution: String): Boolean {
+        return solution == randomWord
     }
 }
