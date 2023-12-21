@@ -2,13 +2,14 @@ import games.UnscrambleGame
 import wordSource.WordProcessor
 
 fun main() {
+    var gamesPlayed: Int = 0
     val wordProcessor = WordProcessor()
     val unscrambleGame = UnscrambleGame(wordProcessor)
     println()
     println("Welcome to Word Games 👋🏻")
     println()
-    println("Scrambled word: ${unscrambleGame.generateAndScramble()}")
-    print("Type unscrambled guess and press ⮐ : ")
+    println("First scrambled word: ${unscrambleGame.generateAndScramble()}")
+    print("Type your unscrambled guess and press ⮐ : ")
     val userInput = readln()
 
     if (unscrambleGame.checkSolutionCorrect(userInput)) {
@@ -16,7 +17,26 @@ fun main() {
     } else {
         println("Nope! The correct answer was ${unscrambleGame.randomWord}.")
     }
+    gamesPlayed ++
     println()
+
+    if (gamesPlayed < 2) {
+        println("Second scrambled word: ${unscrambleGame.generateAndScramble()}")
+        print("Type your unscrambled guess and press ⮐ : ")
+        val secondUserInput = readln()
+
+        if (unscrambleGame.checkSolutionCorrect(secondUserInput)) {
+            println("Congrats, you got it! 🥳")
+        } else {
+            println("Nope! The correct answer was ${unscrambleGame.randomWord}.")
+        }
+        println()
+        println("This is the end of the game.")
+    } else {
+        println()
+        println("This is the end of the game.")
+    }
+
 }
 
 // 👇🏻 Code experiment, trying to identify arrow keys 👇🏻
