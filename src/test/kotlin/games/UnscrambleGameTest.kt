@@ -2,6 +2,7 @@ package games
 
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
+import org.mockito.Mockito
 import wordSource.WordProcessor
 
 class UnscrambleGameTest {
@@ -29,17 +30,42 @@ class UnscrambleGameTest {
     }
 
     @Test
-    fun `a randomly shuffled word must always be different to the original order of letters`() {
+    fun `once shuffled a words letters must be in a different order to the `() {
         val wordProcessor = WordProcessor()
         val unscrambleGame = UnscrambleGame(wordProcessor)
         val chosenWord = unscrambleGame.selectRandomWord()
         val scrambledWord = unscrambleGame.scramble()
 
         assertNotEquals(chosenWord, scrambledWord)
-    }  // how would I test properly to show and edge case scenario where a word is shuffled into its original format?
+    }
+
+    @Test
+    fun `once selected, a chosen word is removed from the wordList`() {
+        val wordProcessor = WordProcessor()
+        val unscrambleGame = UnscrambleGame(wordProcessor)
+//        val wordList = wordProcessor.wordsAsList
+        val chosenWord = unscrambleGame.selectRandomWord()
+        val isChosenWordInWordList = unscrambleGame.wordList.contains(chosenWord)
+
+        assertEquals(false, isChosenWordInWordList)
+    }
+
+//    @Test
+//    fun scrambleUsingMockito() {
+//        val mockWordProcessor = Mockito.mock(WordProcessor::class.java)
+//        val unscrambleGame = UnscrambleGame(mockWordProcessor)
+//
+//        assertNotNull(unscrambleGame)
+//
+//
+//    }
+
+
+
+
 
 //    @Test // not sure how to test for this?
-//    fun `if user solution is not a 4 letter word, prompt a second attempt`() {
+//    fun `if user solution is not a 5 letter word, prompt a second attempt`() {
 //
 //    }
 
