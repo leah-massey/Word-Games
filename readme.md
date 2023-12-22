@@ -10,7 +10,8 @@ The user is presented with a randomly generated 5 letter word that has been scra
 The user must guess what the unscrambled version of the word is. <br/>
 If the user's guess is correct, they are congratulated. <br/>
 If the user's guess is incorrect, they are commiserated. <br/>
-The games runs twice and then the game ends. <br/>
+The games runs twice. The second word to guess will never be the same as the first.<br/>
+After running twice, the game ends.<br/>
 
 
 Prerequisites
@@ -34,7 +35,7 @@ From the root of your Word Games project, follow this path: <br/>
 ./src/main/kotlin
 
 run the following steps from your terminal:
-```kotlinc hello.kt games/*.kt wordSource/*.kt -include-runtime -d hello.jar ```
+```kotlinc Main.kt games/*.kt wordSource/*.kt -include-runtime -d main.jar```
 
 
 How to run the program
