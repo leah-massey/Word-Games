@@ -27,7 +27,6 @@ fun main() {
     playUnscrambleGame()
     println("This is the end of the game.")
 
-
 }
 
 // 👇🏻 Code experiment, trying to identify arrow keys 👇🏻
