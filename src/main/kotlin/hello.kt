@@ -6,34 +6,28 @@ fun main() {
     val wordProcessor = WordProcessor()
     val unscrambleGame = UnscrambleGame(wordProcessor)
 
-    println("\nWelcome to Word Games 👋🏻\n")
-
-    println("First scrambled word: ${unscrambleGame.generateAndScramble()}")
-    print("Type your unscrambled guess and press ⮐ : ")
-    val userInput = readln()
-
-    if (unscrambleGame.checkSolutionCorrect(userInput)) {
-        println("Congrats, you got it! 🥳\n")
-    } else {
-        println("Nope! The correct answer was ${unscrambleGame.randomWord}.\n")
-    }
-    gamesPlayed ++
-
-
-    if (gamesPlayed < 2) {
-        println("Second scrambled word: ${unscrambleGame.generateAndScramble()}")
+    fun playUnscrambleGame() {
+        println("Scrambled word: ${unscrambleGame.generateAndScramble()}")
         print("Type your unscrambled guess and press ⮐ : ")
-        val secondUserInput = readln()
+        val userInput: String = readln()
 
-        if (unscrambleGame.checkSolutionCorrect(secondUserInput)) {
-            println("Congrats, you got it! 🥳")
+        if (unscrambleGame.checkSolutionCorrect(userInput)) {
+            println("Congrats, you got it! 🥳\n")
         } else {
             println("Nope! The correct answer was ${unscrambleGame.randomWord}.")
         }
-        println("\nThis is the end of the game.")
-    } else {
-        println("\nThis is the end of the game.")
+        gamesPlayed ++
+        if (gamesPlayed < 2) {
+            println("\nTry another one:\n")
+            playUnscrambleGame()
+        }
     }
+
+    println("\nWelcome to Word Games 👋🏻\n")
+    playUnscrambleGame()
+    println("This is the end of the game.")
+
+
 }
 
 // 👇🏻 Code experiment, trying to identify arrow keys 👇🏻
