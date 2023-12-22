@@ -2,7 +2,7 @@ package games
 import wordSource.WordProcessor
 class UnscrambleGame(val wordProcessor: WordProcessor) {
 
-    var wordList = wordProcessor.findFiveLetterWords()
+    var wordList: List<String> = wordProcessor.findFiveLetterWords()
     var randomWord: String = ""
     var scrambledRandomWord: String = ""
 
